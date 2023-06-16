@@ -17,6 +17,8 @@ import Cart from './redux/features/Cart';
 import Me from './Components/me/me';
 import AuthContext from './store/AuthContext';
 import { API_URL } from './Components/API.JSX';
+import { IsLoggedInContext } from './store/AuthContext';
+import Login from './Components/authentication/Login';
 function App() {
   console.log(API_URL);
   const dispatch = useDispatch();
@@ -24,9 +26,9 @@ function App() {
   useEffect(()=>{
     dispatch(fetchAsync())
   },[])
-  let ctx = useContext(AuthContext);
-  console.log(ctx.isLoggedIn)
-  
+  // let ctx = useContext(AuthContext);
+  // console.log(ctx.isLoggedIn)
+  let ctx = useContext(IsLoggedInContext);
 
     // console.log(items);
   return (
@@ -37,8 +39,8 @@ function App() {
       <Route path='/' element={<Homepage/>}></Route>
       <Route path={`/category/:id`}  element={<Checker></Checker>}></Route>
 
-      <Route path={'/authentication'} element ={  <Me/>}/>
-
+      <Route path={'/authentication'} element ={<Authentication></Authentication> }/>
+     
       <Route path={'/description/:id'} element ={< ProductsPage/>}/>
       <Route path={'/cart'} element ={< CartPage/>}/>
       <Route path={'/testing'} element ={< Cart/>}/>

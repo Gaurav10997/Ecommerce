@@ -50,6 +50,12 @@ const userSchema = new mongoose.Schema({
         ref:"Cart"
        }
     ],
+    orders:
+    {
+        type:mongoose.Schema.ObjectId,
+        ref:"Order"
+    }
+,
      
     paswordChanged : Date,
     passwordResetToken:String,

@@ -16,6 +16,8 @@ exports.getAllReview = catchAsync(async(req , res , next) => {
 })
 exports.createReview =catchAsync(async(req, res , next) => {
     console.log(Review)
+    req.body.user=req.user.id
+    req.body.product=req.params.productId
     const review = await Review.create(req.body)
     await review.save()
     res.status(201).json({

@@ -72,3 +72,9 @@
     font-size: 1em;
     font-weight: 600;
 }
+.userInfo{
+    height: 20vh;
+    background-color: #fff;
+    margin:0;
+    padding: 0;
+}

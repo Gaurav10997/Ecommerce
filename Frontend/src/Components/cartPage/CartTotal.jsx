@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CartTotal({subtotal}) {
+function CartTotal({subtotal,toggleOrder}) {
   return (
     <div className="cartTotal">
         <h1>Cart Total</h1>
@@ -18,7 +18,7 @@ function CartTotal({subtotal}) {
             <h2>RS {subtotal}</h2>
         </div>
         <div className="cartTotalbtn">
-        <button>Proceed To Checkout</button>
+        <button onClick={toggleOrder} >Proceed To Checkout</button>
         </div>
         
     </div>

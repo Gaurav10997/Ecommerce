@@ -1,12 +1,13 @@
 import { API_URL } from "../../Components/API.JSX"
-
+const token = localStorage.getItem('token')
+console.log(token);
 export function fetchItems() {
 
     return fetch(`${API_URL}/api/v1/carts/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzFlNjc2NzUwNmRhZmE1MmNmYjJlOSIsImlhdCI6MTY4NTU0MTkyMSwiZXhwIjoxNjg2NDA1OTIxfQ.USyBvvKSohTGbrAdU-OrTtGyKiREeJbUkM1d_k4AX5Y'
+        'Authorization': `Bearer ${token}`
       },
     })
 
@@ -17,7 +18,7 @@ export function addItem(itemID) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzFlNjc2NzUwNmRhZmE1MmNmYjJlOSIsImlhdCI6MTY4NTU0MTkyMSwiZXhwIjoxNjg2NDA1OTIxfQ.USyBvvKSohTGbrAdU-OrTtGyKiREeJbUkM1d_k4AX5Y'
+          'Authorization': `Bearer ${token}`
         },
       })
 }
@@ -30,7 +31,7 @@ export function updateItem( {itemId , count} ){
   }),
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzFlNjc2NzUwNmRhZmE1MmNmYjJlOSIsImlhdCI6MTY4NTU0MTkyMSwiZXhwIjoxNjg2NDA1OTIxfQ.USyBvvKSohTGbrAdU-OrTtGyKiREeJbUkM1d_k4AX5Y'
+      'Authorization': `Bearer ${token}`
     },
   })
 }
@@ -40,7 +41,7 @@ export function deleteItem(id){
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzFlNjc2NzUwNmRhZmE1MmNmYjJlOSIsImlhdCI6MTY4NTU0MTkyMSwiZXhwIjoxNjg2NDA1OTIxfQ.USyBvvKSohTGbrAdU-OrTtGyKiREeJbUkM1d_k4AX5Y'
+        'Authorization': `Bearer ${token}`
       },
     })
   }

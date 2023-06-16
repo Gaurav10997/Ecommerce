@@ -1,6 +1,21 @@
 import React from 'react'
+import { useState,useEffect } from 'react'
 import "./me.css"
 function Me() {
+    const token = localStorage.getItem('token')
+    console.log(token)
+    const [userInfo , setUserInfo] =  useState({})
+    // useEffect(()=>{
+    //     fetch('http://localhost:1200/api/v1/users/',{
+    //         method:"GET",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //           },
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>setUserInfo(data.data.user))
+    // },[token])
   return (
     <>
     
@@ -12,6 +27,7 @@ function Me() {
    <div className="me__main">
 
             <div className="me__left">
+            <h2 style={{color:"skyblue"}} >Good Morning {userInfo.username}</h2>
                 <div className="menu__items">
                     <div className="menu__items__icon">
                         <h2>SETTINGS</h2>

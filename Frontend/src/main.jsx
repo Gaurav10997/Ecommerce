@@ -11,13 +11,13 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-    <BrowserRouter>
-      <Provider store={store} >
-        <AuthContextProvider>
-          <App />
-        </AuthContextProvider>
-      </Provider>
+  <BrowserRouter>
+  <AuthContextProvider>
+   <Provider store={store} >
+       <App />    
+   </Provider>
+   </AuthContextProvider>
 
-    </BrowserRouter>
+ </BrowserRouter>
 
 )
