@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Categorywise/Categorywise.css' 
+import { API_URL } from '../API.JSX';
 import Categorywise from '../Categorywise/Categorywise';
 import { useEffect,useState } from 'react';
 import { Route, useParams } from 'react-router-dom';
@@ -15,7 +16,7 @@ function Checker() {
       }
 
 
-      fetch(`/api/v1/products/categories/${id}`)
+      fetch(`${API_URL}/api/v1/products/categories/${id}`)
 
       .then((res)=>res.json())
       .then(data=>{

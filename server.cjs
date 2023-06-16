@@ -1,7 +1,8 @@
+require('dotenv').config()
 const app = require('./app.cjs')
 
 const express = require('express')
-const PORT_NO = process.env.port || 1200;
+const PORT_NO = process.env.PORT || 1200;
 
 
 

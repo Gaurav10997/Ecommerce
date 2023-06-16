@@ -16,8 +16,9 @@ import Footer from './Components/Footer/Footer';
 import Cart from './redux/features/Cart';
 import Me from './Components/me/me';
 import AuthContext from './store/AuthContext';
-
+import { API_URL } from './Components/API.JSX';
 function App() {
+  console.log(API_URL);
   const dispatch = useDispatch();
   const items = useSelector((state)=>state.cart.items)
   useEffect(()=>{

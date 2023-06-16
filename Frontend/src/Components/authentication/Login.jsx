@@ -1,5 +1,6 @@
 import React, { useState,useContext , useEffect} from 'react'
 import AuthContext from '../../store/AuthContext';
+import { API_URL } from '../API.JSX';
 import "./Login.css"
 
 function Login() {
@@ -25,7 +26,7 @@ function Login() {
   const AddUsers = async (authname, userInfo) => {
     try {
 
-      const response = await fetch(`/api/v1/users/${authname}`, {
+      const response = await fetch(`${API_URL}/api/v1/users/${authname}`, {
 
         method: "POST",
         body: JSON.stringify(userInfo),

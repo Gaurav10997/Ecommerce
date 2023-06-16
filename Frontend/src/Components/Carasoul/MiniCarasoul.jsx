@@ -1,7 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "./carasoul.css"
 import { Image } from "semantic-ui-react";
-
+import { API_URL } from "../API.JSX";
 import { useEffect ,useState } from "react";
 import 'react-multi-carousel/lib/styles.css';
 import Homepagecard from "../cards/Homepagecard";
@@ -45,7 +45,7 @@ function MiniCarasoul({tag}) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(()=>{
-    fetch(`/api/v1/products/tag/${tag}`)
+    fetch(`${API_URL}/api/v1/products/tag/${tag}`)
     .then(res=>res.json())
     .then(data=>setDeals([...deals,data]))
     .then(setIsLoaded(true))

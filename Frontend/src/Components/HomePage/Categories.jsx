@@ -1,13 +1,13 @@
 import React from 'react'
 import Smallcard from '../cards/smallcard';
 import { useEffect , useState } from 'react';
-
+import { API_URL } from '../API.JSX';
 function Categories(props) {
     const [categories, setCategories] = useState([]);
   
     useEffect(() => {
 
-      fetch("/api/v1/products/categories")
+      fetch(`${API_URL}/api/v1/products/categories`)
 
         .then(res => res.json())
         .then(data => {

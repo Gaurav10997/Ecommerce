@@ -1,3 +1,5 @@
+
+require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const { promisify } = require('util')
 const User = require('./../modals/userModel.cjs')
@@ -6,8 +8,8 @@ const AppError = require('../utils/appError.cjs')
 const signToken = id =>{
     return jwt.sign({
         id
-    },'processenvjwtsecret',{
-        expiresIn: '1d'
+    },process.env.JWT_PASSWORD,{
+        expiresIn: process.env.JWT_EXPIRESIN
     })
 }
  exports.signup = catchAsync(async(req,res,next) => {

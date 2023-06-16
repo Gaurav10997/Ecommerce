@@ -1,5 +1,6 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
-const DB = 'mongodb+srv://ecommerce:ecommerce@cluster0.p0ddwlo.mongodb.net/?retryWrites=true&w=majority';
+const DB = process.env.DATABASE_STRING.replace('<password>',process.env.DATABASE_PASSWORD);
 mongoose.connect(DB).then(() => console.log('Connection established'));
 const productSchema = new mongoose.Schema({
     name: {

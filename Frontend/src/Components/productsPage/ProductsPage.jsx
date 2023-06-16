@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { API_URL } from '../API.JSX'
 import { useParams } from 'react-router-dom'
 
 import PriceCard from './PriceCard'
