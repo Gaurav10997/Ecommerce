@@ -19,6 +19,7 @@ import AuthContext from './store/AuthContext';
 import { API_URL } from './Components/API.JSX';
 import { IsLoggedInContext } from './store/AuthContext';
 import Login from './Components/authentication/Login';
+import ByTags from './Components/byTags/ByTags';
 function App() {
   console.log(API_URL);
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function App() {
      <Navbar></Navbar>
     <Routes>
       <Route path='/' element={<Homepage/>}></Route>
+      <Route path="/:tag" element={<ByTags></ByTags>}/>
       <Route path={`/category/:id`}  element={<Checker></Checker>}></Route>
 
       <Route path={'/authentication'} element ={<Authentication></Authentication> }/>

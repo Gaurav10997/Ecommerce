@@ -41,6 +41,7 @@ const images = [
 
 
 function MiniCarasoul({tag}) {
+  console.log(tag)
   const [deals , setDeals] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 

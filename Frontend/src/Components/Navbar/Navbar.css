@@ -58,6 +58,17 @@
 .navOption > li {
     min-width: fit-content;
 }
+
+
+.categoryWise__heading__main{
+    margin-top: 2vh;
+    width: 90vw;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 @media (max-width: 1600px) {
    .navOption{
     display: none;

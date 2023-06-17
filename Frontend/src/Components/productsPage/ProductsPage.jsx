@@ -9,15 +9,15 @@ const ProductsPage = () => {
   const [obj , setObj] = useState({})
   let {id} = useParams()
   useEffect(()=>{
-    fetch(`/api/v1/products/${id}`)
+    fetch(`${API_URL}/api/v1/products/${id}`)
     .then((res)=>res.json())
     .then((data)=>setObj(data.data.product[0]))
 },[id])
-console.log(obj)
+
   return (
     <div className="productsPage">
      <div className="productsPageleft">
-        <img src={  obj.images &&  obj?.images[0]} width ={500}alt="" />
+        <img src={  obj.images &&  obj?.images[0]} width ={500}alt={obj?.name} />
     </div>
     <div className="productsPageright">
         <h1><b>{obj?.name}</b> | {obj?.description}</h1>

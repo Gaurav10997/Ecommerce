@@ -1,31 +1,36 @@
 import React from 'react'
+import RenderProductPage from './RenderProductPage';
 import '../Categorywise/Categorywise.css' 
 import { API_URL } from '../API.JSX';
 import Categorywise from '../Categorywise/Categorywise';
+import { Link } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import { Route, useParams } from 'react-router-dom';
+import { RenderProducts } from '../Categorywise/RenderProducts';
+import MultipleSelectPlaceholder from '../common/filterBy/MenuProps';
 function Checker() {
     let { id } = useParams();
     const [dataTemp , setDataTemp ] = useState([])
     const [isLoading , setisLoading] = useState(true)
-    const [isInitialRender, setIsInitialRender] = useState(true);
-    useEffect(()=>{
-      if(isInitialRender){
-        setIsInitialRender(false);
-        return;
-      }
+    const [order , setOrder] = useState("")
 
-
+    function toggleOrder(name){
+      setOrder(name)
+    }
+    useEffect(() => {
       fetch(`${API_URL}/api/v1/products/categories/${id}`)
-
-      .then((res)=>res.json())
-      .then(data=>{
-          setDataTemp(data.data.categories)
-          setisLoading(false)
-      })
-
-    },[ id, isInitialRender ]);
-    console.log();
+        .then((res) => res.json())
+        .then((data) => {
+          setDataTemp(
+            order === "low"
+            ? data.data.categories.sort((a, b) => a.price - b.price)
+               : order === "high"
+               ? data.data.categories.sort((a, b) => b.price - a.price)
+                 : data.data.categories)
+          setisLoading(false);
+        });
+    }, [id, order]);
+    
   return (
     <>
     {isLoading ? (
@@ -33,22 +38,7 @@ function Checker() {
     ) : (
       dataTemp.length > 0 ? (
         <>
-          <h1 className='categorywise__main__heading'>{dataTemp[0].category.name}</h1>
-          <div className="categorywise__main">
-          {dataTemp.map((el) => (
-            <Categorywise
-              key={el.name}
-              name={el.name}
-              image={el.images[0]}
-              price={el.price}
-              discountPrice={el.discountPercent}
-              rating={el.rating}
-              _id={el._id}
-            />
-          ))}
-
-          </div>
-
+          <RenderProductPage   toggleOrder={toggleOrder} products={dataTemp} heading={dataTemp[0]?.category.name} order={order} />
         </>
       ) : (
         <p>No data available</p>
@@ -59,4 +49,5 @@ function Checker() {
 
   )
   }
+
 export default Checker

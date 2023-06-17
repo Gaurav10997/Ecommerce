@@ -1,0 +1,30 @@
+import React from "react";
+
+    function RenderProductPage({toggleOrder, product}) {
+      return (<>        <h1 style={{
+    width: "80%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "30px"
+  }}>{dataTemp[0].category.name}</h1>
+        <div className='categoryWise__heading__main'>
+          
+          <MultipleSelectPlaceholder toggleOrder={toggleOrder} />
+          </div>
+        
+          <div className="categorywise__main">
+          {dataTemp.map(product => {
+      return <>
+              <Link to={`/description/${product._id}`} style={{
+          paddingLeft: 13,
+          textDecoration: 'none'
+        }}>
+              <RenderProducts key={product._id} image={product.images[0]} discountPrice={product.discountPercent} rating={product.rating} price={product.price}></RenderProducts>
+              </Link>
+              </>;
+    })}
+
+          </div></>);
+    }
+  
+  
