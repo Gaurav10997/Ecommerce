@@ -1,23 +1,17 @@
 import "./productsPage.css"
 import React from 'react'
-
-
-import { useState } from "react"
+import QuantityBox from "../cartPage/QuantityBox"
 import {addAsync , updateAsync} from "./../../redux/features/cartSlice"
-import { useDispatch } from "react-redux"
-function PriceCard({price ,discountPercentage,id}) {
+import { useDispatch ,useSelector } from "react-redux"
+
+// eslint-disable-next-line react/prop-types
+function PriceCard({ price ,discountPercentage ,id }) {
   console.log(id)
-  const [noOfItems , setNoOfItems] = useState(1)
-  const handlePlus = () =>{
-    setNoOfItems(noOfItems + 1)
-  }
-  const handleMinus = () =>{
-    setNoOfItems(noOfItems -1)
-  }
-
+  const carts = useSelector((state) => state.cart.items);
   const dispatch = useDispatch()
+  const index = carts.findIndex((cart)=>cart.product._id.toString()===id.toString())
 
-
+  
   return (
    <div className="priceCard">
     <div className="priceCard__price">
@@ -27,19 +21,11 @@ function PriceCard({price ,discountPercentage,id}) {
     </div>
     <p>Inclusive of All Taxes</p>
     <div className="priceCard__quantity">
-        <div className="priceCard__quantityBox">
-
-            <h2 onClick={handleMinus} >-</h2>
-            <h2>{noOfItems}</h2>
-            <h2 onClick={handlePlus} >+</h2>
-
-        </div>
-       
-        <p className="quantity">Quantity</p>
+  
     </div>
 
-    <button  onClick={() => dispatch(addAsync(id))}>Add to Cart </button>
-
+   {index==-1 && <button  onClick={() => dispatch(addAsync(id))}>Add to Cart </button>}
+    {index!=-1 && <QuantityBox  count={carts[index].quantity} itemId={id}  />}
    </div>
 
   )

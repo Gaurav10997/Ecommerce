@@ -1,6 +1,5 @@
 import { API_URL } from "../../Components/API.JSX"
 const token = localStorage.getItem('token')
-console.log(token);
 export function fetchItems() {
 
     return fetch(`${API_URL}/api/v1/carts/`, {
@@ -23,7 +22,6 @@ export function addItem(itemID) {
       })
 }
 export function updateItem( {itemId , count} ){
-  console.log(itemId,count)
   return fetch(`${API_URL}/api/v1/carts/${itemId}`, {
     method: 'PATCH',
     body: JSON.stringify({

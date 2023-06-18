@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { API_URL } from '../API.JSX'
+import CartPage from '../cartPage/CartPage'
 import { useParams } from 'react-router-dom'
-
 import PriceCard from './PriceCard'
 import DeliveryCard from './DeliveryCard'
 import Review from './Review'
@@ -15,38 +15,43 @@ const ProductsPage = () => {
 },[id])
 
   return (
-    <div className="productsPage">
-     <div className="productsPageleft">
-        <img src={  obj.images &&  obj?.images[0]} width ={500}alt={obj?.name} />
-    </div>
-    <div className="productsPageright">
-        <h1><b>{obj?.name}</b> | {obj?.description}</h1>
-        <div>⭐{obj?.rating} | {obj?.reviews} reviews</div>
 
-        <br /><br /><br />
-        <hr />
+   
+     <div className="productsPage">
+      
+      <div className="productsPageleft">
+         <img src={  obj.images &&  obj?.images[0]} width ={500}alt={obj?.name} />
+     </div>
+     <div className="productsPageright">
+         <h1><b>{obj?.name}</b> | {obj?.description}</h1>
+         <div>⭐{obj?.rating} | {obj?.reviews} reviews</div>
+ 
+         <br /><br /><br />
+         <hr />
+ 
+         <div className="availableColors">
+            
+             <div className="color">
+             <h4>Available Colors</h4>
+                 <div className="color-box" style={{ backgroundColor: 'yellow' }}></div>
+                 <div className="color-box" style={{ background: 'blue' }}></div>
+                 <div className="color-box" style={{ background: '#ff0000' }}></div>
+             </div>
+         </div>
+         <div className="ProductsPagecards">
+         <DeliveryCard />
+ 
+         <PriceCard price={obj?.price} id={id} discountPercentage={obj?.discountPercent}/>
+         </div>
+         <Review />
+ 
+ 
+     </div>
+ 
+     </div>
 
-        <div className="availableColors">
-           
-            <div className="color">
-            <h4>Available Colors</h4>
-                <div className="color-box" style={{ backgroundColor: 'yellow' }}></div>
-                <div className="color-box" style={{ background: 'blue' }}></div>
-                <div className="color-box" style={{ background: '#ff0000' }}></div>
-            </div>
-        </div>
-        <div className="ProductsPagecards">
-        <DeliveryCard />
+   
 
-        <PriceCard price={obj?.price} id={id} discountPercentage={obj?.discountPercent}/>
-        </div>
-        <Review />
-
-
-    </div>
-
-    </div>
-  
    
   )
 }

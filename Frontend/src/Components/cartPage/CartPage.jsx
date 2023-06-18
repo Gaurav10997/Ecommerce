@@ -9,11 +9,9 @@ import CartTotal from './CartTotal';
 
 function CartPage() {
   const carts = useSelector((state) => state.cart.items);
-  console.log(carts)
   const status = useSelector((state) => state.cart.status);
   const navigate = useNavigate()
   const [order,setOrder] = useState(false);
-  console.log(order)
   function toggleOrder(){
     setOrder((prev)=>!prev)
     setTimeout(()=>{
@@ -28,7 +26,6 @@ function CartPage() {
     carts.forEach((el)=>setProductId([...ProductId , el.product._id]))
   },[])
 
-  console.log(ProductId);
 
   if(order){
     return <h1 className='Loader' style={{textAlign:"center"}}>Order Palced Succesfully </h1>

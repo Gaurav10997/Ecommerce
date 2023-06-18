@@ -21,14 +21,11 @@ import { IsLoggedInContext } from './store/AuthContext';
 import Login from './Components/authentication/Login';
 import ByTags from './Components/byTags/ByTags';
 function App() {
-  console.log(API_URL);
   const dispatch = useDispatch();
   const items = useSelector((state)=>state.cart.items)
   useEffect(()=>{
     dispatch(fetchAsync())
-  },[])
-  // let ctx = useContext(AuthContext);
-  // console.log(ctx.isLoggedIn)
+  },[dispatch])
   let ctx = useContext(IsLoggedInContext);
 
     // console.log(items);
