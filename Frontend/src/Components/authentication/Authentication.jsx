@@ -7,7 +7,7 @@ function Authentication() {
   const login = useIsLogin()
   // const token = useToken()
   const token = localStorage.getItem('token')
-  console.log(token)
+  // console.log(token)
   return (
     <>
    {!token && <Login></Login>}

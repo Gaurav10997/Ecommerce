@@ -26,8 +26,8 @@ function Navbar() {
              
             </div>
             <div className="nav__icons">
-                <Link to = '/authentication'>
-                <ImageAvatars  style={{paddingLeft: 13, textDecoration: 'none'}} />
+                <Link to = '/authentication' style={{ textDecoration: 'none'}}>
+                <ImageAvatars   />
                 </Link>
                 <Link to ='/cart'>
 

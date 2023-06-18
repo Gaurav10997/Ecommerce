@@ -4,20 +4,25 @@ import { useSelector , useDispatch } from 'react-redux';
 import {fetchAsync} from "./../../redux/features/cartSlice"
 import CartProductCard from './CartProductCard';
 import CartTotal from './CartTotal';
-
-
+import { API_URL } from '../API';
 
 function CartPage() {
+  const token = localStorage.getItem('token')
   const carts = useSelector((state) => state.cart.items);
   const status = useSelector((state) => state.cart.status);
   const navigate = useNavigate()
   const [order,setOrder] = useState(false);
   function toggleOrder(){
-    setOrder((prev)=>!prev)
-    setTimeout(()=>{
-      navigate('/')
-    },3000)
-
+    fetch(`${API_URL}/api/v1/bookings/checkout-session`,{
+      method:"GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+        
+      },   
+    })
+    .then((res)=>res.json())
+    .then(data=>window.location.href=data.session.url)
   }
   const [cart , setCart] = useState([]);
   const [ProductId , setProductId] = useState([]);
@@ -26,6 +31,10 @@ function CartPage() {
     carts.forEach((el)=>setProductId([...ProductId , el.product._id]))
   },[])
 
+// I will add a Beautifull component for saying This 
+  if(carts.length==0){
+    return <h1>Your cart is Empty </h1>
+  }
 
   if(order){
     return <h1 className='Loader' style={{textAlign:"center"}}>Order Palced Succesfully </h1>

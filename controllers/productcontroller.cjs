@@ -109,6 +109,7 @@ exports.postproduct = async (req, res) => {
 
   exports.getAllCategories = async( req, res ) => {
     try{
+    
       const categories = await Product.distinct('category')
 
       res.status(200).json({

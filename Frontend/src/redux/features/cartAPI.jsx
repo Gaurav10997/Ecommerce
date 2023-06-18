@@ -1,4 +1,4 @@
-import { API_URL } from "../../Components/API.JSX"
+import { API_URL } from "../../Components/API.jsx"
 const token = localStorage.getItem('token')
 export function fetchItems() {
 

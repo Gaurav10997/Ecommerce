@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react'
 import "./me.css"
 function Me() {
     const token = localStorage.getItem('token')
-    console.log(token)
+    // console.log(token)
     const [userInfo , setUserInfo] =  useState({})
     // useEffect(()=>{
     //     fetch('http://localhost:1200/api/v1/users/',{

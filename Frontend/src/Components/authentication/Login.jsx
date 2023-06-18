@@ -3,7 +3,7 @@ import AuthContext from '../../store/AuthContext';
 
 import { LoginHandlerContext } from '../../store/AuthContext';
 import { useToken } from '../../store/AuthContext'
-import { API_URL } from '../API.JSX';
+import { API_URL } from '../API'
 import "./Login.css"
 
 function Login() {
@@ -71,6 +71,7 @@ function Login() {
         password: formData.password,
         passwordConfirm: formData.cpassword,
       }
+      console.log(userInfo)
       await AddUsers('signup' , userInfo);
     }
     else if(!newUser){
@@ -100,7 +101,7 @@ useEffect(()=>{
        {newUser && <h1 className='login__heading'>SignUp</h1>}
       </div>
        <form className='login__form' onSubmit={handleAdduser} >
-     {  newUser&&  <input type="text" name="name"  placeholder='Enter You Name' onChange={handleChange} />}
+     {  newUser&&  <input type="text" name="username"  placeholder='Enter You Name' onChange={handleChange} />}
         <input type="email" name="email"  placeholder='Enter You Email' onChange={handleChange} />
         <input type="password" name="password" placeholder='Enter You Password' onChange={handleChange}/>
        { newUser&& <input name="cpassword" type="password" placeholder='Confirm Your Password' onChange={handleChange} />}

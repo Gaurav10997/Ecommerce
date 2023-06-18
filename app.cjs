@@ -17,10 +17,11 @@ app.use(morgan('dev'));
 app.use('/api/v1/orders' , orderRoutes)
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/bookings' , bookingRoutes )
 app.use('/api/v1/carts', cartRouter);
 
 app.use(express.static(path.join(__dirname , "Frontend","dist")))
-// app.use('./api/v1/bookings' , bookingRoutes )
+
 
 app.get("*" , (req, res)=>{
     res.sendFile(path.join(__dirname , "Frontend","dist","index.html")),
