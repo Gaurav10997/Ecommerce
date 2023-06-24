@@ -2,7 +2,13 @@ const catchAsync = require('../utils/catchAsync.cjs')
 const AppError = require('../utils/appError.cjs')
 const Review = require('./../modals/reviewModel.cjs')
 exports.getReviewsByTourId =catchAsync(async(req, res , next) => {
-    console.log(req.params)
+    const review = await Review.find({product:req.params.productId}).populate('user')
+
+
+    res.status(200).json({
+        status:"success",
+        review
+    })
 })
 
 

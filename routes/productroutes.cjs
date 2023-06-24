@@ -45,7 +45,7 @@ router
 
 router
 .route("/:productId/reviews")
-.get(authController.protect , reviewController.getReviewsByTourId)
+.get( reviewController.getReviewsByTourId)
 .post(authController.protect , reviewController.createReview )
 
 module.exports = router

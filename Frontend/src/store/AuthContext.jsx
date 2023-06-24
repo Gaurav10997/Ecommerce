@@ -25,14 +25,12 @@ export function useLogoutHandler(){
  // eslint-disable-next-line react/prop-types
  export const AuthContextProvider = ({ children }) => {
 
-  const [token,setToken] = useState("");
-
+  const [token,setToken] = useState(localStorage.getItem('token'));
+  
   const userIsLoggedIn = !!token;
 
   const loginHandler = (token) =>{
     setToken(token);
-
-  
     localStorage.setItem('token',token)
 
   }

@@ -1,27 +1,26 @@
-function ReviewComments({}) { return (
+function ReviewComments({createdAt , username , image ,review ,rating}) { return (
 <div className="commentsByUSer__main">
   <div className="commentsByUSer">
     <div className="user__and__ratings">
       <img
-        src="https://cdn.pixabay.com/photo/2016/03/31/19/58/avatar-1295431_640.png"
+        src={image}
         width={29}
         alt=""
       />
-      <p>4★</p>
+      <p>{rating}★</p>
     </div>
 
     <div className="details">
       <div className="review__details ">
-        <div className="date">10/11/2022</div>
+        <div className="date">{createdAt}</div>
       </div>
       <div className="user__details">
-        <p>User Name</p>
+        <p>{username}</p>
       </div>
     </div>
   </div>
   <p>
-    boAt Airdopes 115 | Earbuds with 13mm drivers, BEAST™ Mode for Gamers, ENx™
-    Technology
+   {review}
   </p>
 </div>
 ); } export default ReviewComments

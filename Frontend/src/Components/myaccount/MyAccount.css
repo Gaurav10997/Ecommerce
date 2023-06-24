@@ -1,0 +1,42 @@
+.myaccount{
+    margin-top: 30px;
+    align-items: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+  
+   
+}
+.myaccountchild{
+    display: flex;
+    justify-content: space-around;
+    min-width: 400px;
+    padding: 17px;
+    border: 1px solid rgb(236, 223, 223);
+    border-radius: 30px;
+    text-align: center;
+    align-items: center;
+    min-height: 110px;
+    margin-top: 60px;
+}
+
+.myaccountmore{
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+
+}
+
+.moreOptions{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.moreoptinleft{
+    display: flex;
+    gap: 1rem;
+
+}
+

@@ -37,3 +37,19 @@ Login Page
 Signup Page
 
 ![1687189269584](image/README/1687189269584.png)
+
+Stripe Checkout
+
+![1687189560198](image/README/1687189560198.png)
+
+# Tech Stack
+
+Frontend : React and Redux
+
+Backend : Node Js , ExpressJs
+
+DataBase : Mongodb , Mongoose
+
+Demo user : avdhika@gmail.com
+
+Password:12345678

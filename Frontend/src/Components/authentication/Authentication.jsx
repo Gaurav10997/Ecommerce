@@ -1,17 +1,15 @@
 
 import React, { useState } from 'react'
 import Login from './Login'
-import Me from '../me/me'
-import { useIsLogin, useToken } from '../../store/AuthContext'
+import { useIsLogin } from '../../store/AuthContext'
 function Authentication() {
   const login = useIsLogin()
-  // const token = useToken()
-  const token = localStorage.getItem('token')
-  // console.log(token)
+  if(login){
+    window.location="/"
+  }
   return (
     <>
-   {!token && <Login></Login>}
-   {token && <Me/>}
+   {!login && <Login></Login>}
     </>
 
   )

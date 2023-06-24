@@ -45,7 +45,8 @@ exports.postproduct = async (req, res) => {
 
   exports.getproduct = async( req, res ) => {
     try{
-      const product = await Product.find({_id:req.params.id}).populate('reviews')
+      const product = await Product.find({_id:req.params.id})
+      // .populate('reviews')
       res.status(200).json({
         status: 'success',
         data: {

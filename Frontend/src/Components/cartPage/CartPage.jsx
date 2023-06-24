@@ -5,9 +5,13 @@ import {fetchAsync} from "./../../redux/features/cartSlice"
 import CartProductCard from './CartProductCard';
 import CartTotal from './CartTotal';
 import { API_URL } from '../API';
+import { useContext } from 'react';
+import { IsLoggedInContext } from '../../store/AuthContext';
 
+import KeepMountedModal from '../common/model/Model';
 function CartPage() {
   const token = localStorage.getItem('token')
+  const isLogin = useContext(IsLoggedInContext)
   const carts = useSelector((state) => state.cart.items);
   const status = useSelector((state) => state.cart.status);
   const navigate = useNavigate()
@@ -31,6 +35,10 @@ function CartPage() {
     carts.forEach((el)=>setProductId([...ProductId , el.product._id]))
   },[])
 
+  if(!isLogin){
+    return <KeepMountedModal/>
+  }
+  
 // I will add a Beautifull component for saying This 
   if(carts.length==0){
     return <h1>Your cart is Empty </h1>

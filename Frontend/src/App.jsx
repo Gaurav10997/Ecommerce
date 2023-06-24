@@ -20,6 +20,8 @@ import { API_URL } from './Components/API.JSX';
 import { IsLoggedInContext } from './store/AuthContext';
 import Login from './Components/authentication/Login';
 import ByTags from './Components/byTags/ByTags';
+import MyAccount from './Components/myaccount/MyAccount';
+import LoginModel from './Components/common/loginModel/LoginModel';
 function App() {
   const dispatch = useDispatch();
   const items = useSelector((state)=>state.cart.items)
@@ -37,12 +39,13 @@ function App() {
       <Route path='/' element={<Homepage/>}></Route>
       <Route path="/:tag" element={<ByTags></ByTags>}/>
       <Route path={`/category/:id`}  element={<Checker></Checker>}></Route>
-
+    
       <Route path={'/authentication'} element ={<Authentication></Authentication> }/>
      
       <Route path={'/description/:id'} element ={< ProductsPage/>}/>
       <Route path={'/cart'} element ={< CartPage/>}/>
       <Route path={'/testing'} element ={< Cart/>}/>
+      <Route path={'/account'} element ={<MyAccount></MyAccount>}/>
     </Routes> 
 
 

@@ -20,7 +20,7 @@ const ProductsPage = () => {
      <div className="productsPage">
       
       <div className="productsPageleft">
-         <img src={  obj.images &&  obj?.images[0]} width ={500}alt={obj?.name} />
+         <img src={ obj.images &&  obj?.images[0]} width ={500}alt={obj?.name} />
      </div>
      <div className="productsPageright">
          <h1><b>{obj?.name}</b> | {obj?.description}</h1>
@@ -43,7 +43,7 @@ const ProductsPage = () => {
  
          <PriceCard price={obj?.price} id={id} discountPercentage={obj?.discountPercent}/>
          </div>
-         <Review />
+         <Review id = {id} />
  
  
      </div>
