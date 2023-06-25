@@ -14,8 +14,10 @@
     /* border-bottom: 0.1rem solid black; */
 }
 .search{
+    position: relative;
     display: flex;
     align-items: center;
+   
 }
 .navOption>li{
     font-size: 1.3rem;
@@ -27,6 +29,7 @@
     border-radius: 20px;
     border: none;
     background-color: #f4f5f7;
+    
   
 }
 
@@ -102,6 +105,22 @@
 .popupprofilename{
     color: red;
     
+}
+.searchedItems{
+    position: absolute;
+    top: -6px;
+}
+.searcheditems{
+    border-radius: 10px;
+    border: 1px solid grey;
+    color: black;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+.searcheditems{
+    padding: 0px;
 }
 
 

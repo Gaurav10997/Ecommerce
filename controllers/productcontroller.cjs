@@ -171,6 +171,33 @@ exports.postproduct = async (req, res) => {
     }
   }
   
+  exports.getSearchedProducts = async(req,res,next)=>{
+    try {
+      const searchterm = req.params.id
+      const results = await Product.aggregate([
+        {
+          $search: {
+            index: 'searchProducts',
+            text: {
+              query: `${searchterm}`,
+              path: {
+                wildcard: '*',
+              },
+            },
+          },
+        }
+      ])
+  
+      res.status(201).json({
+        status:"success",
+        data:results
+      });
+    } catch (error) {
+      console.error('Error in getSearchedProducts:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+  }
 
 
  

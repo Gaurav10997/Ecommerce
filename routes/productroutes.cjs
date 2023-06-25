@@ -6,6 +6,9 @@ const router = express.Router();
 
 
 
+router
+.route('/search/:id')
+.get(productController.getSearchedProducts)
 
 router
 .route('/reviews')

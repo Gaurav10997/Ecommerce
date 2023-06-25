@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import NameCard from './NameCard'
 function Smallcard({ tempobj }) {
 
 
@@ -8,11 +9,7 @@ function Smallcard({ tempobj }) {
         
     {tempobj.map((el,index)=>(
       <Link to= {`category/${el.name}`} key={index}  style={{paddingLeft: 13, textDecoration: 'none'}}  >
-      <div  className="smallcard">
-
-       <img src= {el.url} alt="" width={87} />
-       <h4>{el.name}</h4>
-       </div>
+      <NameCard  image={el.url} name={el.name}  size="medium"  />
       </Link>
     ))}
 
@@ -21,4 +18,6 @@ function Smallcard({ tempobj }) {
   )
 }
 
-export default Smallcard
+
+
+  export default Smallcard

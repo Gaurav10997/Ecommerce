@@ -1,6 +1,8 @@
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import SearchedItems from './SearchedItems';
+import NameCard from '../cards/NameCard';
 import ImageAvatars from '../common/avatar/ImageAvatars';
 import { useSelector } from 'react-redux';
 import PopupProfile from './PopupProfile';
@@ -10,11 +12,16 @@ import { Avatar } from '@mui/material';
 import "./Navbar.css"
 function Navbar() {
   const isLogin = useContext(IsLoggedInContext)
-  console.log(isLogin)
   const cartCount = useSelector((state) => state.cart.items.length)
   const [popupprofile ,setpopupprofile] = useState(false)
+  const [searchedItems ,serSearchedItems] = useState(false)
+  const [search , sersearchTerm] = useState("new")
   function togglepopupprofile(){
     setpopupprofile((prev)=>!prev)
+    
+  }
+  function toggleSearchedItems(){
+    serSearchedItems((prev)=>!prev)
     
   }
   
@@ -31,8 +38,8 @@ function Navbar() {
               <Link to={"/new"} style={{textDecoration:"none"}} ><li>New Launches</li></Link>
             </ul>
             <div className="search">
-              <input className='search__box' placeholder='Search here' type="text"  id='search' />
-             
+              <input className='search__box' placeholder='Search here' type="text"  id='search' onClick={toggleSearchedItems} onChange={(e)=>sersearchTerm(e.target.value.length>3?e.target.value:"boat")}/>
+              {searchedItems && <SearchedItems   toggleSearchedItems={toggleSearchedItems} search = {search} linktotheProduct={true}  />}
             </div>
             <div className="nav__icons">
                 {/* <Link to = '/authentication' style={{ textDecoration: 'none'}}> */}
@@ -66,4 +73,6 @@ function Navbar() {
 
 
 
-  export default Navbar
+
+
+    export default Navbar
