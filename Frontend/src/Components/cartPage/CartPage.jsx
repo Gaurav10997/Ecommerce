@@ -91,8 +91,6 @@ function CartPage() {
   ))
   
   }
-
-
       <div className="cartpagebtm">
         <CartTotal subtotal={subtotal } toggleOrder={toggleOrder} />
 

@@ -40,10 +40,10 @@ export const updateAsync = createAsyncThunk(
 
 export const deleteAsync = createAsyncThunk(
   'cart/deleteItems',
-  async (item )  => {
-    const response = await deleteItem(item);
+  async ({itemId} )  => {
+    const response = await deleteItem({itemId});
     const data = await response.json();
-    return data.cart.items
+    return itemId
    
   }
 );
@@ -86,12 +86,14 @@ export const cartSlice = createSlice({
 
       .addCase(deleteAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.items= (action.payload);
-      });
+        console.log(action.payload)
+        const index = state.items.findIndex((item)=>item.product.id.toString() ===action.payload.toString())
+        console.log(index)
+        state.items.splice(index,1);
+      })
   },
 });
 
-// export const {  } = productsSlice.actions;
 
 
 export default cartSlice.reducer;

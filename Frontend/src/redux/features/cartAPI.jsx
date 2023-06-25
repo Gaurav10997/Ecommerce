@@ -34,8 +34,8 @@ export function updateItem( {itemId , count} ){
   })
 }
 
-export function deleteItem(id){
-   return fetch(`${API_URL}/api/v1/carts/${id}`, {
+export function deleteItem({itemId}){
+   return fetch(`${API_URL}/api/v1/carts/${itemId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

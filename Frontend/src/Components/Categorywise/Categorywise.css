@@ -13,18 +13,17 @@
     padding: 10px;
     justify-content: center;
     place-content: center;
-    grid-template-columns: repeat( auto-fit, minmax(360px, 1fr) );
+    grid-template-columns: repeat( auto-fit, minmax(400px, 1fr) );
     
 }
 .categorywise{
-    max-width: 400px;
+    max-width: 450px;
+    /* min-width: 400px; */
     display: flex;
     justify-content: space-between;
-
     height: 250px;
-
     flex-grow: 1;
-   background-color: #fafafa;
+    background-color: #fafafa;
     border-radius: 10px;
 }
 .categorywise__image{
@@ -33,7 +32,6 @@
 
 }
 .details{
-   
     padding: 20px;
 }
 
@@ -63,5 +61,4 @@
     width: 180px;
     color: white;
     background-color: red;
-
 }

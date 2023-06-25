@@ -39,9 +39,7 @@ function App() {
       <Route path='/' element={<Homepage/>}></Route>
       <Route path="/:tag" element={<ByTags></ByTags>}/>
       <Route path={`/category/:id`}  element={<Checker></Checker>}></Route>
-    
       <Route path={'/authentication'} element ={<Authentication></Authentication> }/>
-     
       <Route path={'/description/:id'} element ={< ProductsPage/>}/>
       <Route path={'/cart'} element ={< CartPage/>}/>
       <Route path={'/testing'} element ={< Cart/>}/>

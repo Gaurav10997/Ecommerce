@@ -1,4 +1,5 @@
 import React from "react";
+import Button from '@mui/material/Button';
 export function RenderProducts({
   image,
   name,
@@ -24,7 +25,7 @@ export function RenderProducts({
                 <p>⭐{rating}</p>
             </div>
 
-            <button className="addtocart">View Product  </button>
+            <Button style={{backgroundColor:"red", color:"white"}}>View Product</Button>
 
         </div>
     </div>;

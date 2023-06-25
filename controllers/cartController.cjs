@@ -54,9 +54,9 @@ exports.removeFromCart = async(req, res, next) =>{
         if (item) {
             const index = cart.items.indexOf(item);
             cart.items.splice(index, 1);
-            cart.save();
+            await cart.save();
         }
-        res.status(204).json({
+        res.status(201).json({
             status: "success",
             data: cart,
         })
