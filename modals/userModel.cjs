@@ -44,12 +44,12 @@ const userSchema = new mongoose.Schema({
             message: "Passwords do not match"
         }
     },
-    carts:[
+    carts:
        {
         type:mongoose.Schema.ObjectId,
         ref:"Cart"
        }
-    ],
+    ,
     orders:
     {
         type:mongoose.Schema.ObjectId,

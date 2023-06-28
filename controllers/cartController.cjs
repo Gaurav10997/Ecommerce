@@ -20,7 +20,7 @@ exports.addCart = async(req,res , next) =>{
               }
               await cart.save();
         } else{
-            cart = await Cart.create({
+            cart = await Cart.createNewCart({
                 user: userId,
                 items: [{ product: productId, quantity: 1 }],
               });

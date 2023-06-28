@@ -11,7 +11,6 @@ const bookingRoutes = require("./routes/bookingRoutes.cjs")
 const globalErrorHandler = require('./controllers/errorController.cjs')
 const app = express();
 app.use(cors());
-
 app.use(express.json());
 app.use(morgan('dev'));
 app.use('/api/v1/orders' , orderRoutes)
@@ -36,5 +35,5 @@ app.all('*',( req, res, next) => {
    
    
    // global error handling  mechanism 
-   app.use(globalErrorHandler)
+app.use(globalErrorHandler)
 module.exports = app;

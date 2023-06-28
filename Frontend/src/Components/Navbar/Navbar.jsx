@@ -12,7 +12,7 @@ import { Avatar } from '@mui/material';
 import "./Navbar.css"
 function Navbar() {
   const isLogin = useContext(IsLoggedInContext)
-  const cartCount = useSelector((state) => state.cart.items.length)
+  const cartCount = useSelector((state)=>state.reducer.cart.items.length)
   const [popupprofile ,setpopupprofile] = useState(false)
   const [searchedItems ,serSearchedItems] = useState(false)
   const [search , sersearchTerm] = useState("new")

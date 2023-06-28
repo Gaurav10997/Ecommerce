@@ -1,5 +1,6 @@
 
 require('dotenv').config()
+const Cart = require("./../modals/cartModel.cjs")
 const jwt = require('jsonwebtoken')
 const { promisify } = require('util')
 const User = require('./../modals/userModel.cjs')
@@ -21,7 +22,8 @@ const signToken = id =>{
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm
     }))
-
+    const cart = await Cart.createNewCart(newUser._id);
+    console.log(cart)
     // secret should be 32 characters  and dont wrte here wite env variable i will do it later 
     const token = signToken(newUser._id)
     res.status(201).json({

@@ -12,8 +12,8 @@ import KeepMountedModal from '../common/model/Model';
 function CartPage() {
   const token = localStorage.getItem('token')
   const isLogin = useContext(IsLoggedInContext)
-  const carts = useSelector((state) => state.cart.items);
-  const status = useSelector((state) => state.cart.status);
+  const carts = useSelector((state)=>state.reducer.cart.items);
+  const status = useSelector((state) => state.reducer.cart.status);
   const navigate = useNavigate()
   const [order,setOrder] = useState(false);
   function toggleOrder(){

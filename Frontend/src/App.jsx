@@ -24,7 +24,9 @@ import MyAccount from './Components/myaccount/MyAccount';
 import LoginModel from './Components/common/loginModel/LoginModel';
 function App() {
   const dispatch = useDispatch();
-  const items = useSelector((state)=>state.cart.items)
+ 
+  
+  const items = useSelector((state)=>state.reducer.cart.items)
   useEffect(()=>{
     dispatch(fetchAsync())
   },[dispatch])
